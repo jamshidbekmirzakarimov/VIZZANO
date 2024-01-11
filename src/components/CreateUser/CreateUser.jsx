@@ -3,7 +3,7 @@ import { Modal } from "antd";
 import { Button, Checkbox, Form, Input } from "antd";
 import useCreateUser from "../../hooks/useCreataUser";
 const CreateUser = ({ open, onOk, confirmLoading, onCancel, modalText }) => {
-    const { create } = useCreateUser();
+  const { create } = useCreateUser();
   return (
     <Modal
       title="Create User"
@@ -39,10 +39,10 @@ const CreateUser = ({ open, onOk, confirmLoading, onCancel, modalText }) => {
           <Input.Password size="large" placeholder="Enter your password" />
         </Form.Item> */}
         <Form.Item>
-              <Button type="primary" htmlType="submit">
-                Submit
-              </Button>
-            </Form.Item>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
       </Form>
     </Modal>
   );

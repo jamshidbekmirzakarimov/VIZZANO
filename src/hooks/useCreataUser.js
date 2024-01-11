@@ -9,7 +9,8 @@ function useCreateUser(token) {
     try {
       const response = await axios.post("user/create", data, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
       console.log(response);
