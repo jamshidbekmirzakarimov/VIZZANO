@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal } from "antd";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import useCreateUser from "../../hooks/useCreataUser";
+
 const CreateUser = ({ open, onOk, confirmLoading, onCancel, modalText }) => {
-  const { create } = useCreateUser();
+  const { create } = useCreateUser(onCancel); // Replace "your-token-value" with the actual token value
+
   return (
     <Modal
       title="Create User"
       visible={open}
-      onOk={onOk}
       confirmLoading={confirmLoading}
       onCancel={onCancel}
     >
@@ -25,19 +26,26 @@ const CreateUser = ({ open, onOk, confirmLoading, onCancel, modalText }) => {
             {
               type: "text",
               required: true,
-              message: "fullname`da xatolik bor",
+              message: "Full name is required",
             },
           ]}
         >
-          <Input size="large" placeholder="Enter your fullname" />
+          <Input size="large" placeholder="Enter your full name" />
         </Form.Item>
 
-        {/* <Form.Item
-          name="password"
-          rules={[{ required: true, message: "Please enter your password!" }]}
+        <Form.Item
+          name="flowType"
+          rules={[
+            {
+              type: "text",
+              required: true,
+              message: "Flow type is required",
+            },
+          ]}
         >
-          <Input.Password size="large" placeholder="Enter your password" />
-        </Form.Item> */}
+          <Input size="large" placeholder="Enter the flow type" />
+        </Form.Item>
+
         <Form.Item>
           <Button type="primary" htmlType="submit">
             Submit

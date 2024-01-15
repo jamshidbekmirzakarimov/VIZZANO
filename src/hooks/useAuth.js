@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import axios from "../api/api";
 function useAuth() {
-  const navigate = useNavigate();
 
   const login = async (values) => {
     const data = {
@@ -16,7 +14,7 @@ function useAuth() {
         toast.success("Success");
         localStorage.setItem("token", response.data.data.token);
         localStorage.setItem("user", JSON.stringify(response.data.data.user.fullName));
-        navigate("/main");
+        window.location.reload()
       }
     } catch (error) {
       if (error.response) {
